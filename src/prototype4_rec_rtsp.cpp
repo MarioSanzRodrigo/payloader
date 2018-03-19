@@ -9,6 +9,7 @@
 #include "libs/Receiver.h"
 #include "libs/Codecs.h"
 
+//Prueba
 
 int main(int argc, const char* argv[]) {
 
@@ -22,10 +23,8 @@ if (argc != 3) {
 	const char *input_file = argv[1];
 	const char *output_file = argv[2];
 
-	//payloader::Receiver* receiver = new payloader::Receiver(3001);
-	//payloader::Unpackager* unpackager = new payloader::Unpackager();
+
 	payloader::Decoder* decoder = new payloader::Decoder();
-	//payloader::Encoder* encoder = new payloader::Encoder();
 	payloader::OutputWriter* writer = new payloader::OutputWriter(output_file);
 	payloader::RtspReader* receiver_rtsp = new payloader::RtspReader(input_file,NULL);
 
@@ -45,32 +44,8 @@ if (argc != 3) {
 
     // common
 	writer->init({}, mp4Info);
-	//unpackager->init();
-	
-
-	// 4a sin transcodificación
-	// unpackager->setSink(writer);
-
-
-	// 4b con transcodificación
-	// encoder->init({}, mp4Info);
-	// decoder->init({}, lheInfo);
-	// unpackager->setSink(decoder);
-	// decoder->setSink(encoder);
-	// encoder->setSink(writer);
-
-	// 4d a display
-	//decoder->init({}, mp4Info);
-	//unpackager->setSink(decoder);
 	decoder->setSink(writer);
-
-	//
-	
-
-    // common
-	//receiver->setSink(unpackager);
 	receiver_rtsp->setSink(decoder);
-	//receiver->init();
 	receiver_rtsp->init();
 
 }
