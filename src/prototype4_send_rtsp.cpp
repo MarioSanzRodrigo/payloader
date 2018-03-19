@@ -65,41 +65,7 @@ int main(int argc, const char* argv[]) {
     lheInfo.bitRate = 48000;
 
     // common
-	//packager->init();
-	//receiver->setSink();
-	//receiver->init();
-
-
-	// 4a sin transcodificación
 	   reader->setSink(sender_rtsp);
 	   sender_rtsp->init();
-
-	// 4b con transcodificación
-	// encoder->init({}, lheInfo);
-	// decoder->init({}, mp4Info);
-	// reader->setSink(decoder);
-	// decoder->setSink(encoder);
-	// encoder->setSink(packager);
-
-	// 4c desde webcam MJPEG
-	// encoder->init({}, lheInfo);
-	// decoder->init({}, mjpegInfo);
-	// reader->setSink(decoder);
-	// decoder->setSink(encoder);
-	// encoder->setSink(packager);
-
-	// 4e desde desktop
-	// encoder->init({}, lheInfo);
-	// decoder->init({}, rv32Info);
-	// reader->setSink(decoder);
-	// decoder->setSink(encoder);
-	// encoder->setSink(packager);
-
-
-	//Rtsp: InputReader -> sender_rtsp
-	
-
-	// common
-	//packager->setSink(sender);
-	reader->init();
+       reader->init();
 }
